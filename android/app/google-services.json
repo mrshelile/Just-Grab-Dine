@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "827647189745",
+    "project_id": "just-grab-8a0cd",
+    "storage_bucket": "just-grab-8a0cd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:827647189745:android:16944fbec2eb49a9717f50",
+        "android_client_info": {
+          "package_name": "com.example.justgrab"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARR-q-2v5HP9p1EtlbUSMCjTebyf4a_Ag"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:827647189745:android:58470b4977b0c259717f50",
+        "android_client_info": {
+          "package_name": "com.example.justgrab_dine"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARR-q-2v5HP9p1EtlbUSMCjTebyf4a_Ag"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:827647189745:android:59a00ccfd0c72093717f50",
+        "android_client_info": {
+          "package_name": "com.example.justgrab_pro"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARR-q-2v5HP9p1EtlbUSMCjTebyf4a_Ag"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
