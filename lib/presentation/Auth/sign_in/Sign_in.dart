@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:justgrab_dine/application/Auth/Auth.dart';
 import '../../../theme/colors.dart';
 import '../../home/Home.dart';
 import 'widgets/Background.dart';
@@ -13,6 +14,10 @@ class SignIn extends StatefulWidget {
 class _SignInState extends State<SignIn> {
   bool isEmailCorrect = false;
   bool isObscure = false;
+  final formkey = GlobalKey<FormState>();
+  final passwordController = TextEditingController();
+  final emailController = TextEditingController();
+  String error = "";
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).copyWith().size;
@@ -26,15 +31,26 @@ class _SignInState extends State<SignIn> {
                 left: size.width * 0.1,
                 right: size.width * 0.1),
             child: Form(
+              key: formkey,
               child: ListView(
                 children: [
                   TextFormField(
+                    controller: emailController,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return "field is required";
+                      }
+                      return null;
+                    },
                     decoration: InputDecoration(
                         labelText: "Email Address",
                         hintText: "example@company.com",
                         focusColor: gold1,
-                        suffix:
-                            Icon(isEmailCorrect ? Icons.check : Icons.close),
+                        suffix: IconButton(
+                            onPressed: () {
+                              emailController.clear();
+                            },
+                            icon: Icon(Icons.close)),
                         labelStyle: TextStyle(
                             fontWeight: FontWeight.bold, color: brown1)),
                   ),
@@ -42,7 +58,14 @@ class _SignInState extends State<SignIn> {
                     height: size.height * 0.05,
                   ),
                   TextFormField(
+                    controller: passwordController,
                     obscureText: isObscure,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return "field is required";
+                      }
+                      return null;
+                    },
                     decoration: InputDecoration(
                         labelText: "Password",
                         hintText: "*********",
@@ -75,11 +98,38 @@ class _SignInState extends State<SignIn> {
                         left: size.width * 0.1, right: size.width * 0.1),
                     child: TextButton(
                         style: TextButton.styleFrom(backgroundColor: brown1),
-                        onPressed: () => Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => Home(),
-                            )),
+                        onPressed: () async {
+                          setState(() {
+                            error = "";
+                          });
+                          if (formkey.currentState!.validate()) {
+                            var res = await AuthUser().userLogin(
+                                emailAddress: emailController.text.trim(),
+                                password: passwordController.text.trim());
+                            if (res.statusCode == 200) {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => Home(),
+                                  ));
+                            } else {
+                              setState(() {
+                                error = res.body;
+                              });
+                            }
+                          }
+                          if (error.isNotEmpty) {
+                            final snackdemo = SnackBar(
+                              content: Text(error),
+                              backgroundColor: brown1,
+                              elevation: 10,
+                              behavior: SnackBarBehavior.floating,
+                              margin: const EdgeInsets.all(5),
+                            );
+                            ScaffoldMessenger.of(context)
+                                .showSnackBar(snackdemo);
+                          }
+                        },
                         child: Text(
                           "Login",
                           style: TextStyle(
