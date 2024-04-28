@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:justgrab_dine/presentation/Auth/sign_in/Sign_in.dart';
+import 'package:justgrab_dine/presentation/Auth/sign_up/Sign_up.dart';
 
 import '../../theme/colors.dart';
 
@@ -59,20 +60,46 @@ class _OnboardingState extends State<Onboarding> {
             height: size.height * 0.1,
           ),
           Container(
-            padding: EdgeInsets.only(
-                left: size.width * 0.1, right: size.width * 0.1),
-            child: TextButton(
-                style: TextButton.styleFrom(backgroundColor: gold1),
-                onPressed: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => SignIn(),
-                    )),
-                child: Text(
-                  "Get Started",
-                  style: TextStyle(color: white1, fontWeight: FontWeight.bold),
-                )),
-          ),
+              width: size.width,
+              padding: EdgeInsets.only(
+                  left: size.width * 0.05, right: size.width * 0.05),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  TextButton(
+                      style: TextButton.styleFrom(
+                          backgroundColor: gold1,
+                          minimumSize: Size(size.width * 0.4, 10)),
+                      onPressed: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => SignIn(),
+                          )),
+                      child: Text(
+                        "Sign In",
+                        style: TextStyle(
+                            color: white1,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20),
+                      )),
+                  TextButton(
+                      style: TextButton.styleFrom(
+                          backgroundColor: brown1,
+                          minimumSize: Size(size.width * 0.4, 10)),
+                      onPressed: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => SignUp(),
+                          )),
+                      child: Text(
+                        "Sign Up",
+                        style: TextStyle(
+                            color: white1,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20),
+                      )),
+                ],
+              )),
         ],
       ),
     );
