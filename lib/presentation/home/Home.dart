@@ -2,10 +2,11 @@ import 'package:awesome_bottom_bar/awesome_bottom_bar.dart';
 import 'package:awesome_bottom_bar/widgets/inspired/inspired.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:justgrab_dine/presentation/home/pages/product/product.dart';
 import 'package:justgrab_dine/theme/colors.dart';
 import 'pages/blocklist/Blocklist.dart';
 import 'pages/clients/Client.dart';
-import 'pages/resturant/Resturant.dart';
+
 import 'widgets/TabItems.dart';
 
 class Home extends StatefulWidget {
@@ -17,7 +18,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   int visit = 0;
-  final List<Widget> screens = [Resturant(), Client(), Blocklist()];
+  final List<Widget> screens = [Products(), orders(), SalesList()];
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).copyWith().size;

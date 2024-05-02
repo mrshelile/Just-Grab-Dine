@@ -54,9 +54,7 @@ class _SignInState extends State<SignIn> {
                         labelStyle: TextStyle(
                             fontWeight: FontWeight.bold, color: brown1)),
                   ),
-                  SizedBox(
-                    height: size.height * 0.05,
-                  ),
+                
                   TextFormField(
                     controller: passwordController,
                     obscureText: isObscure,

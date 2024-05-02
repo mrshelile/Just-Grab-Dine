@@ -7,11 +7,11 @@ const List<TabItem> tabItems = [
     title: 'Restaurants',
   ),
   TabItem(
-    icon: Icons.people,
-    title: 'Clients',
+    icon: Icons.list,
+    title: 'Order',
   ),
   TabItem(
-    icon: Icons.block,
-    title: 'Black List',
+    icon: Icons.sell,
+    title: 'Sales',
   ),
 ];

@@ -2,15 +2,14 @@ import 'package:flutter/material.dart';
 
 import '../../../../theme/colors.dart';
 
-
-class Client extends StatefulWidget {
-  const Client({super.key});
+class orders extends StatefulWidget {
+  const orders({super.key});
 
   @override
-  State<Client> createState() => _ClientState();
+  State<orders> createState() => _ordersState();
 }
 
-class _ClientState extends State<Client> {
+class _ordersState extends State<orders> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).copyWith().size;
@@ -43,7 +42,11 @@ class _ClientState extends State<Client> {
                     color: Colors.white),
                 child: ListTile(
                   trailing: IconButton(
-                      onPressed: null, icon: Icon(Icons.block_sharp,color: reeed1,)),
+                      onPressed: null,
+                      icon: Icon(
+                        Icons.block_sharp,
+                        color: reeed1,
+                      )),
                   leading: Image.asset(
                     "assets/imag1.png",
                     height: size.height * 0.05,

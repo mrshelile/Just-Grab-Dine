@@ -6,14 +6,14 @@ import '../../../../theme/colors.dart';
 import 'widgets/Client_block_list.dart';
 import 'widgets/Resturant_block_list.dart';
 
-class Blocklist extends StatefulWidget {
-  const Blocklist({super.key});
+class SalesList extends StatefulWidget {
+  const SalesList({super.key});
 
   @override
-  State<Blocklist> createState() => _BlocklistState();
+  State<SalesList> createState() => _SalesListState();
 }
 
-class _BlocklistState extends State<Blocklist> {
+class _SalesListState extends State<SalesList> {
   List<Widget> screens = [ResturantBlockList(), ClientBlockList()];
 
   int visited = 0;
