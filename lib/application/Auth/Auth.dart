@@ -5,10 +5,9 @@ import 'package:get/get.dart';
 class AuthUser {
   final auth = FirebaseAuth.instance;
   final firestore = FirebaseFirestore.instance;
+
   Future<Response> userLogin(
       {required String emailAddress, required String password}) async {
-    print(emailAddress);
-    print(password);
     try {
       await auth.signInWithEmailAndPassword(
           email: emailAddress, password: password);
@@ -34,13 +33,15 @@ class AuthUser {
       // required String
       required String phone}) async {
     try {
-      UserCredential userCredential = await auth.createUserWithEmailAndPassword(
+      final userCredential = await auth.createUserWithEmailAndPassword(
           email: emailAddress, password: password);
 
       await firestore.collection("restaurants").add({
         "full_name": restaurantName,
         "phone_number": phone,
+        "email": emailAddress,
         "location": location,
+        "allowed": false,
         "user_id": userCredential.user!.uid
       });
       return const Response(statusCode: 201, body: "user created");

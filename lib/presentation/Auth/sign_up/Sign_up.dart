@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:justgrab_dine/application/Auth/Auth.dart';
 import 'package:justgrab_dine/presentation/Auth/sign_in/Sign_in.dart';
 import '../../../theme/colors.dart';
-import '../../home/Home.dart';
 import 'widgets/Background1.dart';
 
 class SignUp extends StatefulWidget {
@@ -32,7 +31,7 @@ class _SignUpState extends State<SignUp> {
           const Background1(),
           Container(
             padding: EdgeInsets.only(
-                top: size.height * 0.4,
+                top: size.height * 0.34,
                 left: size.width * 0.1,
                 right: size.width * 0.1),
             child: Form(

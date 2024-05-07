@@ -13,7 +13,7 @@ class SignIn extends StatefulWidget {
 
 class _SignInState extends State<SignIn> {
   bool isEmailCorrect = false;
-  bool isObscure = false;
+  bool isObscure = true;
   final formkey = GlobalKey<FormState>();
   final passwordController = TextEditingController();
   final emailController = TextEditingController();
