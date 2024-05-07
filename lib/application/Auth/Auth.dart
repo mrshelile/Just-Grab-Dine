@@ -9,10 +9,16 @@ class AuthUser {
   Future<Response> userLogin(
       {required String emailAddress, required String password}) async {
     try {
-      await auth.signInWithEmailAndPassword(
+      final user = await auth.signInWithEmailAndPassword(
           email: emailAddress, password: password);
       // var de = await firestore.collection("users");
-
+      final res = await firestore
+          .collection("restaurants")
+          .where("user_id", isEqualTo: user.user!.uid)
+          .get();
+      if (res.docs.isEmpty) {
+        throw FirebaseAuthException(code: "not-restaurant");
+      }
       return const Response(statusCode: 200, body: "Authenticated");
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {

@@ -70,7 +70,6 @@ class _CreateAdState extends State<CreateAd> {
   );
 
   // ignore: prefer_typing_uninitialized_variables
-  var _dropdownValue, _transmissionValue;
   @override
   void initState() {
     super.initState();
@@ -78,7 +77,7 @@ class _CreateAdState extends State<CreateAd> {
 
   @override
   Widget build(BuildContext context) {
-    int countBtnDisable = 0;
+    // int countBtnDisable = 0;
     final width = MediaQuery.of(context).copyWith().size.width;
     final height = MediaQuery.of(context).copyWith().size.height;
     Widget name = Container(
