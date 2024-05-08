@@ -15,6 +15,7 @@ class AuthUser {
       final res = await firestore
           .collection("restaurants")
           .where("user_id", isEqualTo: user.user!.uid)
+          .where("allowed", isEqualTo: true)
           .get();
       if (res.docs.isEmpty) {
         throw FirebaseAuthException(code: "not-restaurant");

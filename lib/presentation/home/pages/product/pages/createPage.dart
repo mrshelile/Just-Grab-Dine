@@ -1,5 +1,5 @@
-import 'dart:async';
-import 'dart:convert';
+// import 'dart:async';
+// import 'dart:convert';
 import 'dart:io';
 // import 'package:file_picker/file_picker.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
-import 'package:get/get_connect/http/src/exceptions/exceptions.dart';
+// import 'package:get/get_connect/http/src/exceptions/exceptions.dart';
 import 'package:justgrab_dine/application/Product/MealController.dart';
 import 'package:justgrab_dine/theme/colors.dart';
 import 'package:justgrab_dine/theme/sideClip.dart';
@@ -39,17 +39,14 @@ class _CreateAdState extends State<CreateAd> {
       if (result.files.length <= 1) {
         if (result.files.every((element) => element.size <= 3750000)) {
           setState(() {
-            _error = "";
             imageFileList = result.paths.map((path) => File(path!)).toList();
           });
         } else {
           setState(() {
-            _error = "image is too large";
           });
         }
       } else {
         setState(() {
-          _error = "maximum of 5 images";
         });
       }
     }
@@ -62,7 +59,6 @@ class _CreateAdState extends State<CreateAd> {
   final _priceController = TextEditingController();
   final _descriptionController = TextEditingController();
 
-  var _error = '';
   bool _loading = false;
   final _loader = SpinKitSpinningLines(
     color: gold1,

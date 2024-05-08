@@ -78,7 +78,7 @@ class _HomeState extends State<Home> {
                   child: Text(
                     overflow: TextOverflow.ellipsis,
                     maxLines: 3,
-                    "WELCOME BACK Malefetsane Shelile",
+                    "WELCOME BACK",
                     style:
                         TextStyle(fontWeight: FontWeight.bold, color: brown1),
                   ),

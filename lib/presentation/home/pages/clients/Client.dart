@@ -6,7 +6,7 @@ import 'package:justgrab_dine/application/Auth/Auth.dart';
 import 'package:justgrab_dine/application/Product/MealController.dart';
 import 'package:justgrab_dine/presentation/util/util1.dart';
 
-import '../../../../theme/colors.dart';
+// import '../../../../theme/colors.dart';
 
 class orders extends StatefulWidget {
   const orders({super.key});
@@ -39,7 +39,7 @@ class _ordersState extends State<orders> {
         stream: AuthUser()
             .firestore
             .collection("orders")
-            .where("status", isNotEqualTo: "processed")
+            .where("status", isEqualTo: "waiting")
             .snapshots(),
         builder: (context, snapshot) {
           if (snapshot.hasError || !snapshot.hasData) {
