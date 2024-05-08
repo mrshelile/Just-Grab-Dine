@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:justgrab_dine/presentation/home/pages/product/product.dart';
 import 'package:justgrab_dine/theme/colors.dart';
-import 'pages/blocklist/Blocklist.dart';
+import 'pages/sales/sales.dart';
 import 'pages/clients/Client.dart';
 
 import 'widgets/TabItems.dart';

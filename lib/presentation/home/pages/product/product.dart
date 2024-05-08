@@ -9,6 +9,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:justgrab_dine/application/Auth/Auth.dart';
 import 'package:justgrab_dine/data/sign_up/remote/DTOs/product.dart';
 import 'package:justgrab_dine/presentation/home/pages/product/pages/createPage.dart';
+import 'package:justgrab_dine/presentation/util/util1.dart';
 // import 'package:justgrab_dine/presentation/home/pages/product/pages/food_page.dart';
 import '../../../../theme/colors.dart';
 
@@ -47,18 +48,7 @@ class _ProductsState extends State<Products> {
     super.dispose();
   }
 
-  Future<String> getImageDownloadUrl({required String img}) async {
-    final storageRef = FirebaseStorage.instance.ref().child(img);
 
-    try {
-      final url = await storageRef.getDownloadURL();
-      return url;
-    } catch (error) {
-      // Handle error getting download URL
-      print(error);
-      return "";
-    }
-  }
 
   final keys = [];
 

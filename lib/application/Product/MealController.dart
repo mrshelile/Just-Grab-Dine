@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:io';
 import 'package:justgrab_dine/application/Auth/Auth.dart';
 import 'package:path/path.dart';
@@ -5,6 +6,14 @@ import 'package:firebase_storage/firebase_storage.dart';
 
 class MealController {
   final storage = FirebaseStorage.instance;
+  Future processOrder({required oderId}) async {
+    return await AuthUser()
+        .firestore
+        .collection("orders")
+        .doc(oderId)
+        .update({"status":"processed"});
+  }
+
   Future uploadMeal(
       {required File image,
       required String title,

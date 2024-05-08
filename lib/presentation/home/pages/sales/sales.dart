@@ -8,14 +8,14 @@ import 'package:justgrab_dine/presentation/util/util1.dart';
 
 import '../../../../theme/colors.dart';
 
-class orders extends StatefulWidget {
-  const orders({super.key});
+class SalesList extends StatefulWidget {
+  const SalesList({super.key});
 
   @override
-  State<orders> createState() => _ordersState();
+  State<SalesList> createState() => _SalesListState();
 }
 
-class _ordersState extends State<orders> {
+class _SalesListState extends State<SalesList> {
   StreamSubscription<QuerySnapshot>? orders;
   @override
   void initState() {
@@ -39,7 +39,8 @@ class _ordersState extends State<orders> {
         stream: AuthUser()
             .firestore
             .collection("orders")
-            .where("status", isNotEqualTo: "processed")
+            .where("status", isNotEqualTo: "waiting")
+            .where("status")
             .snapshots(),
         builder: (context, snapshot) {
           if (snapshot.hasError || !snapshot.hasData) {
@@ -76,16 +77,13 @@ class _ordersState extends State<orders> {
                           borderRadius: BorderRadius.circular(10),
                           color: Colors.white),
                       child: ListTile(
-                        trailing: IconButton(
-                            onPressed: () async {
-                              // snapshot.data!.docs[index]
-                              await MealController().processOrder(
-                                  oderId: snapshot.data!.docs[index].id);
-                            },
-                            icon: const Icon(
-                              Icons.wifi_protected_setup,
-                              color: Colors.cyan,
-                            )),
+                        trailing:
+                            snapshot.data!.docs[index]['status'] != "delivered"
+                                ? Icon(
+                                    Icons.delivery_dining,
+                                    color: brown1,
+                                  )
+                                : const Icon(Icons.call_received),
                         leading: StreamBuilder(
                             stream: (snapshot.data!.docs.first
                                     .data()['meals']
